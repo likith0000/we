@@ -1,0 +1,24 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+iris=pd.read_csv("C:\\Users\\Admin\\Desktop\\csvs\\iris_mpg.csv")
+display(iris)
+fig=iris[iris.variety=='sentosa'].plot.scatter(x='petal.length',y='petal.width',color='orange',label='setosa')
+iris[iris.variety=='versicolor'].plot.scatter(x='petal.length',y='petal.width',color='green',label='versicolor',ax=fig)
+iris[iris.variety=='virginica'].plot.scatter(x='petal.length',y='petal.width',color='red',label='virginica',ax=fig)
+fig.set_xlabel("petal.length")
+fig.set_ylabel("petal.width")
+fig.set_title("petal length and width")
+fig=plt.gcf()
+fig.set_size_inches(8,8)
+plt.show()
+petal_width=iris[iris['petal.length']==1.4]
+display(petal_width)
+count=iris.groupby('petal.length')['petal.length'].count()
+display(count)
+sum=iris['petal.length'].sum()
+display(sum)
+max=iris['sepal.width'].max()
+display(max)
+add=iris['sepal.length']+1.0
+display(add)
